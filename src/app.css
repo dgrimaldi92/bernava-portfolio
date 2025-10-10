@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* biome-ignore lint/suspicious/noUnknownAtRules: rules defined in tailwindcss */
+@theme {  
+  --color-default-complementary: oklch(0.8822 0.0571 266.64);  
+}
+
+:root {
+  --background-rgb: oklch(0.9887 0.0126 86.83);
+  --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-rgb: oklch(0.9887 0.0126 86.83);
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  background: var(--background-rgb);
+  color: var(--foreground-rgb);
+}
+
+.embla {  overflow: hidden;}.embla__container {  display: flex;}.embla__slide {  flex: 0 0 100%;  min-width: 0;}
