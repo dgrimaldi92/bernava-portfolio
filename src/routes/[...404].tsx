@@ -1,11 +1,11 @@
-export default function NotFound() {
+import type { JSX } from "solid-js";
+
+export default function NotFound(): JSX.Element {
 	return (
-		<div class="text-center mx-auto text-gray-700 p-4">
-			<h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
+		<div class="mx-auto p-4 text-center text-gray-700">
+			<h1 class="max-6-xs my-16 font-thin text-6xl text-sky-700 uppercase">
 				Not Found
 			</h1>
-			<p class="mt-8">Visit to learn how to build Solid apps.</p>
-			<p class="my-4"></p>
 		</div>
 	);
 }

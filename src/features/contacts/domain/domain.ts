@@ -1,7 +1,7 @@
 const email = "info@simonebernava.it";
 const office = "Via Broseta 54, 24122, Bergamo (Italy)";
 const studio = "Piazza San Martino 19, 33035, Nogaredo di Prato (Italy)";
-const VAT = "IT09674600961";
+const vat = "IT09674600961";
 // const PI = "IT09674600961"
 // **INFO** <br>
 // **Office**<br>
@@ -9,4 +9,4 @@ const VAT = "IT09674600961";
 
 // PI: IT09674600961`;
 
-export default { email, office, studio, VAT };
+export default { email, office, studio, vat };

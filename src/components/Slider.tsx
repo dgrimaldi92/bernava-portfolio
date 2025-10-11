@@ -1,19 +1,16 @@
-import { For, splitProps } from "solid-js";
+import { For, type JSX, splitProps } from "solid-js";
+import { Image } from "./Image";
 
-export function Slider(props: { images_path: string[] }) {
-  const [{ images_path }] = splitProps(props, ["images_path"]);
+export function Slider(props: { imagesPath: string[] }): JSX.Element {
+  const [{ imagesPath }] = splitProps(props, ["imagesPath"]);
 
   //first:pl-2 last:pr-2
   return (
-    <div class="relative flex w-full snap-x gap-6 overflow-x-auto">
-      <For each={images_path}>
-        {(path) => (
+    <div class="relative flex w-full snap-x gap-2 overflow-x-auto">
+      <For each={imagesPath}>
+        {(path: string): JSX.Element => (
           <div class="shrink-0 snap-center">
-            <img
-              class="size-120 object-cover rounded-lg"
-              src={path}
-              alt={`image-${path}`}
-            />
+            <Image path={path} />
           </div>
         )}
       </For>

@@ -115,7 +115,7 @@
 			"security": "on",
 			"style": {
 				"noCommonJs": "on",
-				"noDefaultExport": "on",
+				"noDefaultExport": "off",
 				"noDoneCallback": "on",
 				"noEnum": "on",
 				"noExportedImports": "on",

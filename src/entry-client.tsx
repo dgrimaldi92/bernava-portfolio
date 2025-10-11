@@ -3,7 +3,7 @@ import { mount } from "@solidjs/start/client";
 import { FileRoutes } from "@solidjs/start/router";
 import App from "./app";
 
-const appElement = document.getElementById("app");
+const appElement: HTMLElement | null = document.getElementById("app");
 if (appElement) {
 	mount(
 		() => (

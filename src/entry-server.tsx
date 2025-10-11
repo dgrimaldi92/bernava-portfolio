@@ -1,9 +1,18 @@
 // @refresh reload
-import { createHandler, StartServer } from "@solidjs/start/server";
+import {
+	createHandler,
+	type DocumentComponentProps,
+	StartServer,
+} from "@solidjs/start/server";
+import type { JSX } from "solid-js";
 
 export default createHandler(() => (
 	<StartServer
-		document={({ assets, children, scripts }) => (
+		document={({
+			assets,
+			children,
+			scripts,
+		}: DocumentComponentProps): JSX.Element => (
 			<html lang="en">
 				<head>
 					<meta charset="utf-8" />

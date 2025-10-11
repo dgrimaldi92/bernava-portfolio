@@ -1,4 +1,4 @@
-const data = [
+const data: string[] = [
 	"Bringing to light what already exists.",
 	"Everyday or forgotten objects, such as glass carboys, marble scraps, or old billboards, become the protagonists of a practice that places observation at its core. Like characters in a narrative, these elements evoke past and present, architecture and symbolism, form and substance.",
 	"In 2016, the first land art project for Terna Spa, two Electric pylons with their structure of great lightness, 50 fit high, coloured in gold.",

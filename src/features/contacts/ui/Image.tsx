@@ -1,5 +1,7 @@
-export function ContactImage() {
-  return (
-    <div class="bg-[url(/images/contacts.png)] bg-contain bg-center size-75 bg-no-repeat" />
-  );
+import type { JSX } from "solid-js";
+
+export function ContactImage(): JSX.Element {
+	return (
+		<div class="size-75 bg-[url(/images/contacts.png)] bg-center bg-contain bg-no-repeat" />
+	);
 }
