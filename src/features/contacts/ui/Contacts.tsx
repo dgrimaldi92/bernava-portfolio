@@ -4,7 +4,7 @@ import { ContactImage } from "./Image";
 
 export function Contacts(): JSX.Element {
 	return (
-		<div class="flex items-center gap-x-5 px-5 py-40 sm:py-50 lg:px-80">
+		<div class="flex items-center gap-x-5 px-5 py-40 sm:py-40 lg:px-80">
 			<ContactImage />
 			<div class="flex h-75 flex-col justify-between">
 				<div class="flex flex-col">

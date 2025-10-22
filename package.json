@@ -1,5 +1,5 @@
 {
-  "name": "example-with-tailwindcss",
+  "name": "simonebernava-portfolio",
   "type": "module",
   "scripts": {
     "lint": "biome lint",

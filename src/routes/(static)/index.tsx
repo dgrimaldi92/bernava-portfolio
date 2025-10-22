@@ -4,15 +4,15 @@ import Nav from "~/components/Nav";
 import { useScrollSpy } from "~/components/useScrollSpy";
 import { About } from "~/features/about/ui/About";
 import { Contacts } from "~/features/contacts/ui/Contacts";
-import { Project as Project1 } from "~/features/project-1/ui/Project";
-import { Project as Project2 } from "~/features/project-2/ui/Project";
+import { Objects } from "~/features/objects/ui/Objects";
+import { Projects } from "~/features/projects/ui/Projects";
 
 function Container(props: { children: JSX.Element; id: string }): JSX.Element {
 	const [{ children, id }] = splitProps(props, ["children", "id"]);
 
 	//px-5 sm:px-80
 	return (
-		<div id={id} class="h-screen w-screen snap-start py-20">
+		<div id={id} class="h-screen w-screen snap-start py-2 sm:py-10">
 			{children}
 		</div>
 	);
@@ -21,7 +21,7 @@ function Container(props: { children: JSX.Element; id: string }): JSX.Element {
 export default function Index(): JSX.Element {
 	// biome-ignore lint/suspicious/noUnassignedVariables: it is assigned by the ref in the hook
 	let divRef!: HTMLDivElement;
-	const ids = ["about", "project-1", "project-2", "contacts"];
+	const ids = ["about", "projects", "objects", "contacts"];
 	const selectedId = useScrollSpy(() => divRef);
 
 	return (
@@ -35,10 +35,10 @@ export default function Index(): JSX.Element {
 					<About />
 				</Container>
 				<Container id={ids[1]}>
-					<Project1 />
+					<Projects />
 				</Container>
 				<Container id={ids[2]}>
-					<Project2 />
+					<Objects />
 				</Container>
 				<Container id={ids[3]}>
 					<Contacts />

@@ -1,13 +1,13 @@
 import type { JSX } from "solid-js";
 import { Slider } from "~/components/Slider";
 
-export function Project(): JSX.Element {
+export function Projects(): JSX.Element {
 	const images = Array.from(
-		{ length: 7 },
-		(_, i) => `/images/project_1/${i + 1}.jpg`,
+		{ length: 4 },
+		(_, i) => `/images/projects/${i + 1}.jpg`,
 	);
 	return (
-		<div class="px-6">
+		<div class="sm:px-6">
 			<Slider imagesPath={images} />
 			<div>
 				<p>Golden Thoughts</p>
