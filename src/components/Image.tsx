@@ -1,12 +1,28 @@
-import { type JSX, splitProps } from "solid-js";
+import { createSignal, type JSX, splitProps } from "solid-js";
 
 export function Image(props: { path: string }): JSX.Element {
 	const [{ path }] = splitProps(props, ["path"]);
+	const [isImageLoaded, setImageLoaded] = createSignal<boolean>(false);
+
+	function onLoadCallback(): void {
+		setImageLoaded(true);
+	}
 	return (
-		<div
-			class="size-100 bg-auto bg-center bg-contain bg-no-repeat sm:size-150"
-			style={{ "background-image": `url(${path})` }}
+		// biome-ignore lint/a11y/noNoninteractiveElementInteractions: onLoad is not an interactive prop
+		// biome-ignore lint/performance/noImgElement: this is not next.js
+		<img
+			class={`size-150 snap-center rounded-lg object-fill shadow-sm transition duration-1000 ${
+				isImageLoaded() ? "scale-100 bg-gray-400 blur-0" : "scale-120 blur-2xl"
+			}`}
+			width={150}
+			height={150}
+			src={path}
+			aria-label="text"
+			onLoad={onLoadCallback}
 		/>
 	);
 }
-// bg-[url(/images/contacts.png)] bg-center bg-contain bg-no-repeat
+
+
+//	class="size-100 bg-auto bg-center bg-contain bg-no-repeat sm:size-150"
+//	style={{ "background-image": `url(${path})` }}
