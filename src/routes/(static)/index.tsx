@@ -12,7 +12,7 @@ function Container(props: { children: JSX.Element; id: string }): JSX.Element {
 
   //px-5 sm:px-80
   return (
-    <div id={id} class="h-screen w-screen snap-start py-1 sm:py-10">
+    <div id={id} class="h-screen w-screen snap-start sm:py-10">
       {children}
     </div>
   );

@@ -11,7 +11,7 @@ export function Image(props: { path: string }): JSX.Element {
 		// biome-ignore lint/a11y/noNoninteractiveElementInteractions: onLoad is not an interactive prop
 		// biome-ignore lint/performance/noImgElement: this is not next.js
 		<img
-			class={`my-3 size-125 snap-center rounded-lg object-fill shadow-sm transition duration-1000 sm:size-150 ${
+			class={`my-3 w-180 snap-center rounded-lg object-fill shadow-sm transition duration-1000 sm:size-150 ${
 				isImageLoaded() ? "scale-100 bg-gray-400 blur-0" : "scale-120 blur-2xl"
 			}`}
 			width={150}
