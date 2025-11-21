@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.3.4/schema.json",
 	"assist": {
 		"actions": {
 			"source": {
@@ -9,20 +9,28 @@
 		},
 		"enabled": true
 	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
 	"files": {
-		"experimentalScannerIgnores": ["node_modules", "makefile", "img", "public"],
 		"ignoreUnknown": false,
 		"includes": [
 			"src/**/*.{js,ts,tsx,json}",
 			"!node_modules",
 			"!makefile",
 			"!img",
-			"!public"
+			"!public",
+			"!!app.config.ts"
 		]
 	},
 	"formatter": {
+		"attributePosition": "auto",
 		"enabled": true,
-		"indentStyle": "tab"
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineWidth": 80
 	},
 	"javascript": {
 		"formatter": {
@@ -59,6 +67,7 @@
 				"noNonoctalDecimalEscape": "on",
 				"noPrecisionLoss": "on",
 				"noPrivateImports": "on",
+				"noReactPropAssignments": "on",
 				"noRenderReturnValue": "on",
 				"noSelfAssign": "on",
 				"noSetterReturn": "on",
@@ -79,6 +88,7 @@
 				"noVoidTypeReturn": "on",
 				"useExhaustiveDependencies": "on",
 				"useHookAtTopLevel": "on",
+				"useImageSize": "on",
 				"useImportExtensions": "off",
 				"useIsNan": "on",
 				"useJsxKeyInIterable": "on",
@@ -90,19 +100,13 @@
 				"noFloatingPromises": "on",
 				"noImportCycles": "on",
 				"noMisusedPromises": "on",
-				"noNonNullAssertedOptionalChain": "on",
-				"noSecrets": "on",
 				"noShadow": "on",
 				"noUnnecessaryConditions": "on",
 				"noUnresolvedImports": "on",
 				"noUselessUndefined": "on",
 				"noVueReservedProps": "on",
-				"useAnchorHref": "on",
-				"useConsistentTypeDefinitions": "on",
 				"useExhaustiveSwitchCases": "on",
 				"useExplicitType": "on",
-				"useImageSize": "on",
-				"useReactFunctionComponents": "on",
 				"useSortedClasses": {
 					"fix": "unsafe",
 					"level": "on",
@@ -148,6 +152,7 @@
 				"useConsistentBuiltinInstantiation": "on",
 				"useConsistentCurlyBraces": "on",
 				"useConsistentMemberAccessibility": "on",
+				"useConsistentTypeDefinitions": "on",
 				"useConst": "on",
 				"useDefaultParameterLast": "on",
 				"useDefaultSwitchClause": "on",
@@ -164,6 +169,7 @@
 				"useNodeAssertStrict": "on",
 				"useNodejsImportProtocol": "on",
 				"useNumberNamespace": "on",
+				"useReactFunctionComponents": "on",
 				"useSelfClosingElements": "on",
 				"useShorthandAssign": "on",
 				"useShorthandFunctionType": "on",
@@ -177,7 +183,7 @@
 	},
 	"vcs": {
 		"clientKind": "git",
-		"enabled": false,
-		"useIgnoreFile": false
+		"enabled": true,
+		"useIgnoreFile": true
 	}
 }

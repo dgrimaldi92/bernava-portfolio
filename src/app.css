@@ -1,18 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Helvetica&display=swap");
 @import "tailwindcss";
+@import "@toolwind/anchors";
 
-/* biome-ignore lint/suspicious/noUnknownAtRules: rules defined in tailwindcss */
+
 @theme {  
-  --color-default-complementary: oklch(0.8822 0.0571 266.64);  
+  --color-default-complementary: oklch(0.8822 0.0571 266.64); 
+  --color-default: oklch(0.9887 0.0126 86.83);
+  --color-background: oklch(84.46% 0.003 106.46);
+
+  --font-display: "Helvetica", sans-serif;
+  --text-default: 62.5rem;
+  --text-default--line-height: 15rem;
+  --text-default--letter-spacing: 0.125rem;
+  --text-default--font-weight: 100; 
 }
 
 :root {
-  --background-rgb: oklch(0.9887 0.0126 86.83);
+  --background-rgb: oklch(100% 0.00011 271.152);
   --foreground-rgb: 0, 0, 0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-rgb: oklch(0.9887 0.0126 86.83);
+    --background-rgb: oklch(100% 0.00011 271.152);
     --foreground-rgb: 255, 255, 255;
   }
 }

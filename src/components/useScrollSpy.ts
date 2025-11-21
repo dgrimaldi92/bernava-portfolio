@@ -3,7 +3,7 @@ import { type Accessor, createSignal, onCleanup, onMount } from "solid-js";
 export function useScrollSpy(
 	ref: () => HTMLElement | undefined,
 ): Accessor<string> {
-	const [currentId, setCurrentId] = createSignal<string>("about");
+	const [currentId, setCurrentId] = createSignal<string>("cover");
 
 	const handleScroll = (): void => {
 		const container = ref();

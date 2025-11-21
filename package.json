@@ -15,11 +15,12 @@
     "vinxi": "^0.5.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.5",
+    "@biomejs/biome": "^2.3.4",
     "@tailwindcss/vite": "^4.1.12",
+    "@toolwind/anchors": "^1.0.10",
     "sharp": "^0.34.4",
-    "tailwindcss": "^4.1.12",
-    "vite-plugin-image-optimizer": "^2.0.2"
+    "tailwindcss": "^4.1.17",
+    "vite-plugin-image-optimizer": "^2.0.3"
   },
   "engines": {
     "node": ">=22"
