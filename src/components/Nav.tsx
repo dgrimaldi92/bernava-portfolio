@@ -83,7 +83,7 @@ export default function Nav(props: {
 					on:mouseover={onMouseEnter}
 					on:click={onMouseEnter}
 				>
-					{/* <Image path="/logo.png" size="small" /> */}
+					<Image path="/logo.png" size="small" />
 				</button>
 			</nav>
 			<Show when={showMenu()}>
