@@ -6,7 +6,7 @@ export function About(): JSX.Element {
 			<p class="font-black sm:text-3xl">ABOUT</p>
 			<br />
 			<br />
-			<p class="font-bold">
+			<p class="font-semibold">
 				Born in 1990 in Friuli Venezia Giulia, Italy. Graduated in environmental
 				and cultural studies in Turin, 2015. Working for a design studio in
 				Milan, well known for its urban installations and cultural projects.
