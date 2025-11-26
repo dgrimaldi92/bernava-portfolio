@@ -12,7 +12,7 @@ export function Cover(props: {
 				height="100%"
 				src={props.url}
 				alt="Background"
-				class="-z-10 pointer-events-none absolute top-0 right-0 h-full min-h-[65vh] w-auto object-cover object-right sm:min-h-[90vh]"
+				class="-z-10 pointer-events-none absolute top-0 right-0 h-full min-h-[65vh] object-cover object-right sm:right-0 sm:min-h-[90vh] sm:w-175"
 			/>
 			{props.children}
 		</div>
