@@ -11,7 +11,7 @@ export const idsProjectList = {
 
 export const numberOfImages = {
 	carboys: 3,
-	"como-lake": 0,
+	"como-lake": 7,
 	"mulberry-trees": 9,
 	"palazzo-besta": 3,
 	"poplar-grove": 6,
