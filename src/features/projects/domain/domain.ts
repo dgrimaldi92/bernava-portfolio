@@ -1,17 +1,19 @@
 // biome-ignore assist/source/useSortedKeys: needs to be sorted in this way for business needed
 export const idsProjectList = {
-	"Tagliamento river": "tagliamento-river",
-	"Mulberry Trees": "mulberry-trees",
-	"Jumping Carboys": "carboys",
-	"The City": "the-city",
-	"Poplar Groove": "poplar-grove",
-	"Palazzo Besta": "palazzo-besta",
+	"tagliamento-river": ["Tagliamento river", "Golden Thoughts"],
+	"como-lake": ["Como Lake", "The Wait"],
+	"mulberry-trees": ["The Countryside", "Mulberry Trees"],
+	"the-city": ["The City", "Marble Scraps"],
+	carboys: ["The Cellar", "Jumping Carboys"],
+	"poplar-grove": ["The Paper Mill", "Poplar Groove"],
+	"palazzo-besta": ["Palazzo Besta", "Renaissance"],
 } as const;
 
 export const numberOfImages = {
 	carboys: 3,
+	"como-lake": 0,
 	"mulberry-trees": 9,
-	"palazzo-besta": 0,
+	"palazzo-besta": 3,
 	"poplar-grove": 6,
 	"tagliamento-river": 7,
 	"the-city": 4,

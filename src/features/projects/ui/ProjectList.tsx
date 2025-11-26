@@ -1,12 +1,12 @@
 import { For, type JSX, splitProps } from "solid-js";
-import { idsProjectList } from "../domain/domain";
+import { type IdsProjectValues, idsProjectList } from "../domain/domain";
 
 function Link(props: { key: string; value: string }): JSX.Element {
 	const [{ key, value }] = splitProps(props, ["key", "value"]);
 	return (
 		<li>
-			<a href={`#${value}`} class="inline-block hover:underline">
-				{key.charAt(0).toUpperCase() + key.slice(1)}
+			<a href={`#${key}`} class="inline-block hover:underline">
+				{value.charAt(0).toUpperCase() + value.slice(1)}
 			</a>
 		</li>
 	);
@@ -20,8 +20,8 @@ export function ProjectList(): JSX.Element {
 			<br />
 			<ul class="list-[upper-roman] pl-16 font-bold">
 				<For each={Object.entries(idsProjectList)}>
-					{([key, value]: [string, string]): JSX.Element => (
-						<Link key={key} value={value} />
+					{([key, value]: [string, IdsProjectValues]): JSX.Element => (
+						<Link key={key} value={value[0]} />
 					)}
 				</For>
 			</ul>

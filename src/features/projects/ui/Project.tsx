@@ -2,9 +2,9 @@ import { type JSX, splitProps } from "solid-js";
 import {
 	type IdsProjectKeys,
 	type IdsProjectValues,
-	type idsProjectList,
 	numberOfImages,
 } from "~/features/projects/domain/domain";
+import { Cover } from "~/features/shared/ui/Cover";
 
 import {
 	Modal,
@@ -14,19 +14,20 @@ import {
 } from "~/features/shared/ui/Modal";
 import { Slider } from "~/features/shared/ui/Slider";
 
-function Title(props: { content: keyof typeof idsProjectList }): JSX.Element {
+function Title(props: { content: IdsProjectValues }): JSX.Element {
 	return (
-		<div class="flex min-h-screen w-full items-center justify-center sm:text-5xl">
-			<p class="cursor-pointer text-center font-bold hover:underline">
-				{props.content}
-			</p>
+		<div class="flex flex-col pt-20 pl-5 max-sm:bg-white sm:min-h-screen sm:pt-35">
+			<div class="flex w-full cursor-pointer flex-col hover:underline sm:text-5xl">
+				<p class="text-justify font-bold">{props.content[0]}</p>
+				<p class="text-justify font-bold text-red-500">{props.content[1]}</p>
+			</div>
 		</div>
 	);
 }
 
 export function Project(props: {
-	imageFolder: IdsProjectValues;
-	name: IdsProjectKeys;
+	imageFolder: IdsProjectKeys;
+	name: IdsProjectValues;
 	children?: JSX.Element;
 }): JSX.Element {
 	const [{ imageFolder, name }] = splitProps(props, ["imageFolder", "name"]);
@@ -39,9 +40,11 @@ export function Project(props: {
 		<ModalProvider>
 			{/** biome-ignore lint/nursery/noShadow: props from child */}
 			{(props: Omit<ModalProps, "children">) => (
-				<div class="b-8 sm:p-6">
+				<div>
 					<ModalButton setOpen={props.setOpen} open={props.open}>
-						<Title content={name} />
+						<Cover url={`/images/cover/${imageFolder}/cover.jpg`}>
+							<Title content={name} />
+						</Cover>
 					</ModalButton>
 					<Modal {...props}>
 						<Slider imagesPath={images} />

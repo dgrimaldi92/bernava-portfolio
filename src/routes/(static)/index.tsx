@@ -3,7 +3,7 @@ import { type Accessor, For, type JSX, splitProps } from "solid-js";
 import Nav from "~/components/Nav";
 import { useScrollSpy } from "~/components/useScrollSpy";
 import { About } from "~/features/about/ui/About";
-import { Cover } from "~/features/about/ui/Cover";
+import { FirstPage } from "~/features/about/ui/FirstPage";
 import { Information } from "~/features/about/ui/Information";
 import { Contacts } from "~/features/contacts/ui/Contacts";
 import type { IdsProjectKeys } from "~/features/projects/domain/domain";
@@ -46,7 +46,7 @@ export default function Index(): JSX.Element {
 				class="h-screen w-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth text-black"
 			>
 				<Container id={idsList.index[0]}>
-					<Cover />
+					<FirstPage />
 				</Container>
 				<Container id={idsList.index[1]}>
 					<About />
@@ -62,10 +62,10 @@ export default function Index(): JSX.Element {
 						element: (typeof idsList.projects)[number],
 						index: Accessor<number>,
 					): JSX.Element => (
-						<Container id={idsList.projects[index()][1]}>
+						<Container id={idsList.projects[index()][0]}>
 							<Project
-								imageFolder={element[1]}
-								name={element[0] as IdsProjectKeys}
+								imageFolder={element[0] as IdsProjectKeys}
+								name={element[1]}
 							/>
 						</Container>
 					)}

@@ -8,6 +8,7 @@ import {
 	Switch,
 	splitProps,
 } from "solid-js";
+import type { IdsProjectValues } from "~/features/projects/domain/domain";
 import type { idsList } from "~/features/shared/domain/domain";
 import { Image } from "../features/shared/ui/Image";
 // biome-ignore lint/correctness/noUnusedImports: is used by custom directive
@@ -82,7 +83,7 @@ export default function Nav(props: {
 					on:mouseover={onMouseEnter}
 					on:click={onMouseEnter}
 				>
-					<Image path="/logo.png" size="small" />
+					{/* <Image path="/logo.png" size="small" /> */}
 				</button>
 			</nav>
 			<Show when={showMenu()}>
@@ -99,7 +100,9 @@ export default function Nav(props: {
 												</li>
 												<ul class="list-[upper-roman] pl-4">
 													<For each={features.projects}>
-														{(subItem: string[]): JSX.Element => (
+														{(
+															subItem: [string, IdsProjectValues],
+														): JSX.Element => (
 															<li>
 																<Link
 																	item={subItem[0]}

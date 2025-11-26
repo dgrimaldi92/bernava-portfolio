@@ -4,9 +4,13 @@ import { Image } from "./Image";
 export function Slider(props: { imagesPath: string[] }): JSX.Element {
 	const [{ imagesPath }] = splitProps(props, ["imagesPath"]);
 	return (
-		<div class="relative flex w-full snap-x gap-2 overflow-x-auto">
+		<div class="relative flex snap-x snap-mandatory gap-4 overflow-x-auto p-3">
 			<For each={imagesPath}>
-				{(path: string): JSX.Element => <Image path={path} />}
+				{(path: string): JSX.Element => (
+					<div class="flex-shrink-0 flex-grow-0 snap-center" tabindex="0">
+						<Image path={path} />
+					</div>
+				)}
 			</For>
 		</div>
 	);

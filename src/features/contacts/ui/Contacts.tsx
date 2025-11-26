@@ -22,6 +22,10 @@ export function Contacts(): JSX.Element {
 						<span class="text-start font-bold italic">Office: </span>
 						<span>{data.office}</span>
 					</div>
+					<div style="flex flex-row">
+						<span class="text-start font-bold italic">Studio: </span>
+						<span>{data.studio}</span>
+					</div>
 				</div>
 			</div>
 		</div>
