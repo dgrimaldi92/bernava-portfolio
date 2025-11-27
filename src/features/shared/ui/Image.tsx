@@ -17,7 +17,7 @@ export function Image(props: {
 			<img
 				class={`${
 					size === "default" || size === undefined
-						? "my-3 w-180 sm:size-150"
+						? "h-125 w-100 sm:my-3 sm:size-150 sm:w-180"
 						: "mt-3 w-25"
 				} snap-center rounded-lg object-fill shadow-sm transition duration-1000 ${
 					isImageLoaded()

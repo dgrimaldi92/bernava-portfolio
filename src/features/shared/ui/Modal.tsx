@@ -27,7 +27,7 @@ export function Modal(props: ModalProps): JSX.Element {
 
 	return (
 		<Show when={open()}>
-			<div class="fixed inset-0 flex items-center justify-center px-15 backdrop-blur-sm">
+			<div class="fixed inset-0 flex items-center justify-center backdrop-blur-sm sm:px-15">
 				<div class="fixed inset-0" on:click={handleCloseModal} />
 				<div class="relative inset-indigo-500/50 inset-shadow-sm rounded-lg p-6 shadow-background-500/50 shadow-xl">
 					<button
