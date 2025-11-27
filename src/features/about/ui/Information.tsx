@@ -2,7 +2,7 @@ import type { JSX } from "solid-js";
 
 export function Information(): JSX.Element {
 	return (
-		<div class="min-h-screen w-full p-25 sm:p-50 sm:text-2xl">
+		<div class="min-h-screen w-full p-18 pt-50 sm:p-50 sm:text-2xl">
 			<p class="font-semibold">
 				Since 2016, when Bernava developed the first land art project supported
 				by public and private stakeholders, he is working on a personal research
