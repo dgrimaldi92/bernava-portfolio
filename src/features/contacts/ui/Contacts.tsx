@@ -3,7 +3,7 @@ import data from "../domain/domain";
 
 export function Contacts(): JSX.Element {
 	return (
-		<div class="flex items-center gap-x-5 px-5 text-xl sm:pt-125 lg:px-60">
+		<div class="flex items-center gap-x-5 px-5 pt-125 sm:text-xl lg:px-60">
 			<div class="flex h-75 flex-col justify-between">
 				<div class="flex flex-col">
 					<div style="flex flex-row">
