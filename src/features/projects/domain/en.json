@@ -1,0 +1,41 @@
+{
+	"about": "about",
+	"contacts": "contacts",
+	"cover": "cover",
+	"information": "information",
+	"projects": "projects",
+	"projectsList": {
+		"1-tagliamento-river": {
+			"description": [
+				"Golden Thoughts is a permanent art installation on the Tagliamento River (Udine, Italy).",
+				"Two 50-meter-high pylons, rising from the Tagliamento Riverbed, are painted gold. Their geometric shape frames the surrounding landscape.",
+				"The Tagliamento is considered the only river in the Alpine region, and one of the few in Europe, to retain its original braided-channel morphology, where the water changes its course throughout the year, not being constrained by a single, embanked riverbed."
+			],
+			"title": ["Golden", "Thoughts"]
+		},
+		"2-como-lake": {
+			"description": [
+				"Dressing the city in bright red, with over 500 meters of fabric traversing seven iconic locations. A widespread itinerary that becomes an invitation, a collective ritual, an emotional anticipation of the reopening of its theater, in dialogue with the surrounding space."
+			],
+			"title": ["The Wait", "Lake Como, Lecco"]
+		},
+		"3-mulberry-trees": {
+			"description": [
+				"Mulberry trees are an iconic symbol of Friulian landscape and history. Still nowadays you can find them all around the countryside, beside one field and another. They evokes social and economic aspects during the 19th and early 20th century, and the ancient and ancestral wisdoms of the Benandanti, which general beliefs tell were members of a pagan-shamanic peasant cult based on the fertility of the land."
+			],
+			"title": ["Mulberry", "Trees"]
+		},
+		"4-the-city": {
+			"description": [
+				"In the marble shop, there were piles of scraps left for anyone who wanted to take them away."
+			],
+			"title": ["Marble", "Scraps"]
+		},
+		"5-carboys": {
+			"description": [
+				"were glass containers once used for wine and were typical of peasant society, with capacities ranging from 5 to 50 liters. In the past, they were lined with wicker and had a chestnut wood bottom to reduce the risk of breakage."
+			],
+			"title": ["Jumping", "Carboys"]
+		}
+	}
+}

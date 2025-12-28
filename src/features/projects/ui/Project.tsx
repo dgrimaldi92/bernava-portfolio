@@ -1,10 +1,18 @@
-import { type JSX, splitProps } from "solid-js";
-import {
-	type IdsProjectKeys,
-	type IdsProjectValues,
-	numberOfImages,
-} from "~/features/projects/domain/domain";
+import { flatten, translator } from "@solid-primitives/i18n";
+import { createResource, For, type JSX, Show, splitProps } from "solid-js";
+import { type Locale, useLocale } from "~/components/languageContext";
+import type { IdsProjectKeys } from "~/features/projects/domain/domain";
+import { numberOfImages } from "~/features/projects/domain/domain";
 import { Cover } from "~/features/shared/ui/Cover";
+import type * as en from "../domain/en.json";
+
+type ProjectsDictionary = typeof en.projectsList;
+
+async function fetchDictionary(locale: Locale): Promise<ProjectsDictionary> {
+	const dict: ProjectsDictionary = (await import(`../domain/${locale}.json`))
+		.projectsList;
+	return flatten(dict); // flatten the dictionary to make all nested keys available top-level
+}
 
 import {
 	Modal,
@@ -14,42 +22,59 @@ import {
 } from "~/features/shared/ui/Modal";
 import { Slider } from "~/features/shared/ui/Slider";
 
-function Title(props: { content: IdsProjectValues }): JSX.Element {
-	return (
-		<div class="flex flex-col pt-20 pl-5 max-sm:bg-white sm:min-h-screen sm:pt-35">
-			<div class="flex w-full cursor-pointer flex-col hover:underline sm:text-5xl">
-				<p class="text-justify font-bold">{props.content[0]}</p>
-				<p class="text-justify font-bold text-red-500">{props.content[1]}</p>
+function Title(props: { content: string[] | undefined }): JSX.Element {
+	if (props.content) {
+		return (
+			<div class="flex flex-col pt-20 pl-5 max-sm:bg-white sm:min-h-screen sm:pt-35">
+				<div class="flex w-full cursor-pointer flex-col hover:underline sm:text-5xl">
+					<p class="text-justify font-bold">{props.content[0]}</p>
+					<p class="text-justify font-bold text-red-500">{props.content[1]}</p>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
+	return null;
 }
 
 export function Project(props: {
-	imageFolder: IdsProjectKeys;
-	name: IdsProjectValues;
+	name: IdsProjectKeys;
 	children?: JSX.Element;
 }): JSX.Element {
-	const [{ imageFolder, name }] = splitProps(props, ["imageFolder", "name"]);
+	const [locale] = useLocale();
+	const [projectsTitleDict] = createResource(locale, fetchDictionary);
+	const projectsTitleTranslator = translator(projectsTitleDict);
+
+	const [{ name }] = splitProps(props, ["name"]);
 
 	const images = Array.from(
-		{ length: numberOfImages[imageFolder] },
-		(_, i) => `/images/projects/${imageFolder}/${i + 1}.jpg`,
+		{ length: numberOfImages[name] },
+		(_, i) => `/images/projects/${name}/${i}.jpg`,
 	);
 	return (
 		<ModalProvider>
 			{/** biome-ignore lint/nursery/noShadow: props from child */}
 			{(props: Omit<ModalProps, "children">) => (
-				<div>
+				<Show when={projectsTitleDict()} fallback={<li>Loading…</li>}>
 					<ModalButton setOpen={props.setOpen} open={props.open}>
-						<Cover url={`/images/cover/${imageFolder}/cover.jpg`}>
-							<Title content={name} />
+						<Cover url={`/images/cover/${name}/cover.jpg`}>
+							<Title content={projectsTitleTranslator(name)?.title} />
 						</Cover>
 					</ModalButton>
 					<Modal {...props}>
-						<Slider imagesPath={images} />
+						<Slider imagesPath={images}>
+							<For each={projectsTitleTranslator(name)?.description}>
+								{(value: string): JSX.Element => {
+									return (
+										<>
+											<p class="text-justify text-xs sm:text-base">{value}</p>
+											<br />
+										</>
+									);
+								}}
+							</For>
+						</Slider>
 					</Modal>
-				</div>
+				</Show>
 			)}
 		</ModalProvider>
 	);

@@ -1,4 +1,5 @@
 import { type Accessor, For, type JSX, splitProps } from "solid-js";
+import { LanguageProvider } from "~/components/LanguageSwitch";
 
 import Nav from "~/components/Nav";
 import { useScrollSpy } from "~/components/useScrollSpy";
@@ -6,7 +7,6 @@ import { About } from "~/features/about/ui/About";
 import { FirstPage } from "~/features/about/ui/FirstPage";
 import { Information } from "~/features/about/ui/Information";
 import { Contacts } from "~/features/contacts/ui/Contacts";
-import type { IdsProjectKeys } from "~/features/projects/domain/domain";
 import { Project } from "~/features/projects/ui/Project";
 import { ProjectList } from "~/features/projects/ui/ProjectList";
 import { idsList } from "~/features/shared/domain/domain";
@@ -39,41 +39,40 @@ export default function Index(): JSX.Element {
 	const selectedId = useScrollSpy(() => divRef);
 
 	return (
-		<div class="overflow-hidden font-display text-default max-sm:text-sm">
-			<Nav selectedId={selectedId} ids={idsList} idsToIgnore={["cover"]} />
-			<main
-				ref={divRef}
-				class="h-screen w-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth text-black"
-			>
-				<Container id={idsList.index[0]}>
-					<FirstPage />
-				</Container>
-				<Container id={idsList.index[1]}>
-					<About />
-				</Container>
-				<Container id={idsList.index[2]}>
-					<Information />
-				</Container>
-				<Container id={idsList.index[3]}>
-					<ProjectList />
-				</Container>
-				<For each={idsList.projects}>
-					{(
-						element: (typeof idsList.projects)[number],
-						index: Accessor<number>,
-					): JSX.Element => (
-						<Container id={idsList.projects[index()][0]}>
-							<Project
-								imageFolder={element[0] as IdsProjectKeys}
-								name={element[1]}
-							/>
-						</Container>
-					)}
-				</For>
-				<Container id={idsList.index[4]}>
-					<Contacts />
-				</Container>
-			</main>
-		</div>
+		<LanguageProvider>
+			<div class="">
+				<Nav selectedId={selectedId} ids={idsList} idsToIgnore={["cover"]} />
+				<main
+					ref={divRef}
+					class="h-screen w-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth text-black"
+				>
+					<Container id={idsList.index[0]}>
+						<FirstPage />
+					</Container>
+					<Container id={idsList.index[1]}>
+						<About />
+					</Container>
+					<Container id={idsList.index[2]}>
+						<Information />
+					</Container>
+					<Container id={idsList.index[3]}>
+						<ProjectList />
+					</Container>
+					<For each={idsList.projects}>
+						{(
+							element: (typeof idsList.projects)[number],
+							index: Accessor<number>,
+						): JSX.Element => (
+							<Container id={idsList.projects[index()]}>
+								<Project name={element} />
+							</Container>
+						)}
+					</For>
+					<Container id={idsList.index[4]}>
+						<Contacts />
+					</Container>
+				</main>
+			</div>
+		</LanguageProvider>
 	);
 }

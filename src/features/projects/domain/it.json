@@ -1,0 +1,41 @@
+{
+	"about": "about",
+	"contacts": "contatti",
+	"cover": "cover",
+	"information": "informazioni",
+	"projects": "progetti",
+	"projectsList": {
+		"1-tagliamento-river": {
+			"description": [
+				"Golden Thoughts è un'installazione artistica permanente sul fiume Tagliamento (Udine, Italia).",
+				"Due tralicci alti 50 metri, che si ergono dal letto del fiume Tagliamento, sono verniciati di un colore dorato. La loro forma geometrica funge da cornice del paesaggio circostante.",
+				"Il Tagliamento è considerato l'unico fiume dell’ arco alpino, e uno dei pochi in Europa, a conservare l'originaria morfologia a canali intrecciati, dove l’acqua cambia il suo percorso durante l'anno, non essendo costretta in un alveo unico e arginato."
+			],
+			"title": ["Pensieri", "Dorati"]
+		},
+		"2-como-lake": {
+			"description": [
+				"Vestire la città di un rosso brillante, con oltre 500 metri di tessuti che attraversano sette luoghi simbolici. Un percorso diffuso che diventa invito, rito collettivo, anticipazione emotiva della riapertura del suo Teatro, in dialogo con lo spazio circostante."
+			],
+			"title": ["L’Attesa", "Lago di Como, Lecco"]
+		},
+		"3-mulberry-trees": {
+			"description": [
+				"I gelsi sono un simbolo iconico del paesaggio e della storia friulana, una piccola regione a nord-est di Italia. Ancora oggi si possono trovare ovunque nelle campagne, a delimitare il confine dei campi. Evocano aspetti sociali ed economici del XIX e inizio XX secolo, e l’antica e ancestrale saggezza dei Benandanti, che le credenze popolari narrano fossero membri di un culto contadino pagano-sciamanico basato sulla fertilità della terra. "
+			],
+			"title": ["Gelsi", ""]
+		},
+		"4-the-city": {
+			"description": [
+				"Nella marmeria c'erano mucchi di scarti lasciati a disposizione di chiunque volesse portarli via."
+			],
+			"title": ["Scarti", "di Marmeria"]
+		},
+		"5-carboys": {
+			"description": [
+				"Le damigiane erano i contenitori in vetro usati in passato per il vino e tipici della società contadina, con diverse capacità dai 5 ai 50 litri. In passato erano rivestite in vimini e con un fondo in legno di castagno per ridurre il rischio di rotture."
+			],
+			"title": ["Damigiane", "Danzanti"]
+		}
+	}
+}

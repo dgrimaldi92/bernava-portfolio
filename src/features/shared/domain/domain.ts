@@ -4,5 +4,6 @@ export const idsList = {
 	about: [],
 	contacts: [],
 	index: ["cover", "about", "information", "projects", "contacts"],
-	projects: Object.entries(idsProjectList),
+	menu: ["about", "projects", "contacts"],
+	projects: idsProjectList,
 } as const;

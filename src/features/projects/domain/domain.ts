@@ -1,28 +1,24 @@
-// biome-ignore assist/source/useSortedKeys: needs to be sorted in this way for business needed
-export const idsProjectList = {
-	"tagliamento-river": ["Tagliamento river", "Golden Thoughts"],
-	"como-lake": ["Como Lake", "The Wait"],
-	"mulberry-trees": ["The Countryside", "Mulberry Trees"],
-	"the-city": ["The City", "Marble Scraps"],
-	carboys: ["The Cellar", "Jumping Carboys"],
-	"poplar-grove": ["The Paper Mill", "Poplar Groove"],
-	"palazzo-besta": ["Palazzo Besta", "Renaissance"],
-} as const;
+export const idsProjectList = [
+	"1-tagliamento-river", //: ["Tagliamento river", "Golden Thoughts"],
+	"2-como-lake", //: ["Como Lake", "The Wait"],
+	"3-mulberry-trees", //: ["The Countryside", "Mulberry Trees"],
+	"4-the-city", //: ["The City", "Marble Scraps"],
+	"5-carboys", //: ["The Cellar", "Jumping Carboys"],
+	// "poplar-grove": ["The Paper Mill", "Poplar Groove"],
+	// "palazzo-besta": ["Palazzo Besta", "Renaissance"],
+] as const;
 
 export const numberOfImages = {
-	carboys: 3,
-	"como-lake": 7,
-	"mulberry-trees": 9,
+	"1-tagliamento-river": 5,
+	"2-como-lake": 8,
+	"3-mulberry-trees": 8,
+	"4-the-city": 4,
+	"5-carboys": 3,
 	"palazzo-besta": 3,
 	"poplar-grove": 6,
-	"tagliamento-river": 7,
-	"the-city": 4,
 };
 
-export type IdsProjectValues =
-	(typeof idsProjectList)[keyof typeof idsProjectList];
-
-export type IdsProjectKeys = keyof typeof idsProjectList;
+export type IdsProjectKeys = (typeof idsProjectList)[number];
 
 /* <div>
 	<p>Golden Thoughts</p>
