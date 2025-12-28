@@ -1,19 +1,26 @@
 import { flatten, translator } from "@solid-primitives/i18n";
-import { createResource, type JSX } from "solid-js";
+import { createMemo, type JSX } from "solid-js";
 import { type Locale, useLocale } from "~/components/languageContext";
 import data from "../domain/domain";
 import type * as en from "../domain/en.json";
 
+// Dictionary
+import enJson from "../domain/en.json";
+import itJson from "../domain/it.json";
+import zhJson from "../domain/zh.json";
+
 type ContactsDictionary = typeof en.info;
 
-async function fetchDictionary(locale: Locale): Promise<ContactsDictionary> {
-	const dict: ContactsDictionary = (await import(`../domain/${locale}.json`))
-		.info;
-	return flatten(dict); // flatten the dictionary to make all nested keys available top-level
-}
+const dicts: Record<Locale, ContactsDictionary> = {
+	en: enJson.info,
+	it: itJson.info,
+	zh: zhJson.info,
+};
+
 export function Contacts(): JSX.Element {
 	const [locale] = useLocale();
-	const [contactsDict] = createResource(locale, fetchDictionary);
+	const contactsDict = createMemo(() => flatten(dicts[locale()]));
+
 	const contactsTranslator = translator(contactsDict);
 
 	return (

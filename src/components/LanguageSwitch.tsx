@@ -39,24 +39,6 @@ export function LanguageSwitch(props: { children: JSX.Element }): JSX.Element {
 	const [selectedLocale, setLocale] = useLocale();
 
 	return (
-		// <button
-		// 	type="button"
-		// 	onClick={toggle}
-		// 	class="relative inline-flex h-7 w-14 items-center rounded-full bg-gray-300 transition dark:bg-gray-600"
-		// 	classList={{
-		// 		"bg-blue-600": locale() === "zh",
-		// 	}}
-		// >
-		// 	<span
-		// 		class="inline-block h-5 w-5 transform rounded-full bg-white transition"
-		// 		classList={{
-		// 			"translate-x-1": locale() === "en",
-		// 			"translate-x-7": locale() === "zh",
-		// 		}}
-		// 	/>
-		// 	<span class="absolute left-1 text-white text-xs">EN</span>
-		// 	<span class="absolute right-1 text-white text-xs">中</span>
-		// </button>
 		<Picker<Locale>
 			elements={languageList}
 			current={selectedLocale}

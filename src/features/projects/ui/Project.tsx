@@ -1,18 +1,21 @@
 import { flatten, translator } from "@solid-primitives/i18n";
-import { createResource, For, type JSX, Show, splitProps } from "solid-js";
+import { createMemo, For, type JSX, Show, splitProps } from "solid-js";
 import { type Locale, useLocale } from "~/components/languageContext";
 import type { IdsProjectKeys } from "~/features/projects/domain/domain";
 import { numberOfImages } from "~/features/projects/domain/domain";
 import { Cover } from "~/features/shared/ui/Cover";
 import type * as en from "../domain/en.json";
+import enJson from "../domain/en.json";
+import itJson from "../domain/it.json";
+import zhJson from "../domain/zh.json";
 
 type ProjectsDictionary = typeof en.projectsList;
 
-async function fetchDictionary(locale: Locale): Promise<ProjectsDictionary> {
-	const dict: ProjectsDictionary = (await import(`../domain/${locale}.json`))
-		.projectsList;
-	return flatten(dict); // flatten the dictionary to make all nested keys available top-level
-}
+const dicts: Record<Locale, ProjectsDictionary> = {
+	en: enJson.projectsList,
+	it: itJson.projectsList,
+	zh: zhJson.projectsList,
+};
 
 import {
 	Modal,
@@ -41,7 +44,7 @@ export function Project(props: {
 	children?: JSX.Element;
 }): JSX.Element {
 	const [locale] = useLocale();
-	const [projectsTitleDict] = createResource(locale, fetchDictionary);
+	const projectsTitleDict = createMemo(() => flatten(dicts[locale()]));
 	const projectsTitleTranslator = translator(projectsTitleDict);
 
 	const [{ name }] = splitProps(props, ["name"]);

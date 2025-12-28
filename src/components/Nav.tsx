@@ -99,18 +99,16 @@ export default function Nav(props: {
 	return (
 		<div class="fixed z-100 w-full">
 			<div>
-				<nav class="flex justify-between">
+				<nav class="mx-4 mt-3 flex justify-between">
 					<button
 						type="button"
-						class={`${local.idsToIgnore.includes(local.selectedId()) ? "invisible" : ""} anchor/my-anchor top-5 left-0 flex cursor-pointer px-2`}
+						class={`${local.idsToIgnore.includes(local.selectedId()) ? "invisible" : ""} anchor/my-anchor top-5 left-0 flex cursor-pointer`}
 						on:mouseover={onMouseEnter}
 						on:click={onMouseEnter}
 					>
 						<Image path="/logo.png" size="small" />
 					</button>
-					<div
-						class={`${local.idsToIgnore.includes(local.selectedId()) ? "" : "invisible"}`}
-					>
+					<div class="top-5 rounded-sm bg-white shadow-xl">
 						<LanguageSwitch>
 							<Translate />
 						</LanguageSwitch>

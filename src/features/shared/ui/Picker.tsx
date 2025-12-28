@@ -69,13 +69,13 @@ export function Picker<T>(props: {
 	return (
 		// wrapper contains both trigger and menu so pointer can move between them safely
 		<div
-			class="relative mt-3 text-black sm:mr-4"
+			class="relative pt-1 text-black"
 			on:mouseleave={close}
 			use:clickOutside={close}
 		>
 			<button
 				type="button"
-				class="anchor/my-anchor items-center rounded-md border bg-white px-3 py-1.5 hover:shadow-sm"
+				class="anchor/my-anchor items-center justify-center rounded-md bg-white px-3 py-1.5 hover:shadow-sm"
 				on:mouseover={open} // desktop hover
 				on:click={isMobile() ? undefined : toggle} // open / toggle on click
 				on:pointerdown={open}
@@ -87,7 +87,7 @@ export function Picker<T>(props: {
 
 			<Show when={showMenu()}>
 				<div
-					class="absolute top-anchor-left/my-anchor right-0 rounded bg-white p-2"
+					class="absolute top-anchor-left/my-anchor right-0 rounded border-2 border-gray-200 bg-white p-2"
 					// prevent a document-level click handler from running before our item click
 					on:pointerdown={(e: Event) => e.stopPropagation()}
 					on:click={(e: Event) => e.stopPropagation()}

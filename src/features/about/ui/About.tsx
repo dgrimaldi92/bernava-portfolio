@@ -1,19 +1,22 @@
 import { flatten, translator } from "@solid-primitives/i18n";
-import { createResource, type JSX } from "solid-js";
+import { createMemo, type JSX } from "solid-js";
 import { type Locale, useLocale } from "~/components/languageContext";
 import type * as en from "../domain/en.json";
+import enJson from "../domain/en.json";
+import itJson from "../domain/it.json";
+import zhJson from "../domain/zh.json";
 
 type AboutDictionary = typeof en.about;
 
-async function fetchDictionary(locale: Locale): Promise<AboutDictionary> {
-	const dict: AboutDictionary = (await import(`../domain/${locale}.json`))
-		.about;
-	return flatten(dict);
-}
+const dicts: Record<Locale, AboutDictionary> = {
+	en: enJson.about,
+	it: itJson.about,
+	zh: zhJson.about,
+};
 
 export function About(): JSX.Element {
 	const [locale] = useLocale();
-	const [aboutDict] = createResource(locale, fetchDictionary);
+	const aboutDict = createMemo(() => flatten(dicts[locale()]));
 	const aboutTranslator = translator(aboutDict);
 
 	return (
